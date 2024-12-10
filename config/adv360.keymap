@@ -28,44 +28,73 @@
       };
     };
 
-  keymap {
-    compatible = "zmk,keymap";
+      keymap {
+        compatible = "zmk,keymap";
 
-    default_layer {
-      bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
-      >;
+        // Layer 0: Base Layer
+        layer0 {
+            bindings = <
+                &kp ESC        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp PLUS
+                &kp TAB        &kp Q         &kp W         &kp E         &kp R         &kp T         &kp Y         &kp U         &kp I         &kp O         &kp P         &kp COMMA
+                &kp LSHFT      &kp A         &kp S         &kp D         &kp F         &kp G         &kp H         &kp J         &kp K         &kp L         &kp Ö         &kp Ä
+                &kp LCTRL      &kp Z         &kp X         &kp C         &kp V         &kp B         &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &kp RSHFT
+                &none          &lt 1 TAB     &kp CAPSLOCK  &kp SPACE     &lt 4 ENTER   &lt 7 BSPC
+            >;
+        };
+
+        // Layer 1: Numpad
+        layer1 {
+            bindings = <
+                &trans         &trans         &trans         &trans         &trans         &trans         &kp N7          &kp N8          &kp N9          &kp KP_SLASH   &kp KP_ASTERISK &kp MINUS
+                &trans         &trans         &trans         &trans         &kp F5         &kp F10        &kp F11         &kp BREAK       &kp N4          &kp N5         &kp N6         &kp KP_PLUS
+                &trans         &trans         &trans         &trans         &trans         &trans         &kp N1          &kp N2          &kp N3          &trans         &kp ENTER      &trans
+                &trans         &trans         &trans         &trans         &trans         &trans         &kp N0          &kp N0          &kp KP_DOT      &kp KP_ENTER   &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans
+            >;
+        };
+
+        // Layer 2: Function Keys
+        layer2 {
+            bindings = <
+                &kp F1         &kp F2         &kp F3         &kp F4         &kp F5         &trans         &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans          &trans          &trans          &trans          &kp F12         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans          &trans          &trans          &trans          &trans          &trans
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans          &trans          &trans          &trans          &trans          &trans
+                &trans         &trans         &trans         &trans         &trans         &trans
+            >;
+        };
+
+        // Layer 4: Mac-Symb
+        layer4 {
+            bindings = <
+                &kp LS(1)      &kp LS(2)      &kp LS(3)      &kp LS(4)      &kp LS(5)      &trans         &kp LS(6)      &kp LS(7)      &kp LS(8)      &kp LS(9)      &kp LS(0)      &kp LS(PLUS)
+                &kp AMPERSAND  &kp PIPE       &kp LBRACKET   &kp RBRACKET   &kp LS(COLON)  &kp EQUAL      &kp PG_UP      &kp END        &kp UP         &kp HOME       &trans         &kp LS(ASTERISK)
+                &kp SLASH      &kp ASTERISK   &kp LBRACE     &kp RBRACE     &kp LS(SEMI)   &kp LPAREN     &kp PG_DOWN    &kp LEFT       &kp DOWN       &kp RIGHT      &kp RPAREN     &trans
+                &trans         &trans         &trans         &trans         &kp RIGHTCTRL  &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans
+            >;
+        };
+
+        // Layer 5: Windows
+        layer5 {
+            bindings = <
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &mo 6          &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans
+            >;
+        };
+
+        // Layer 6: MovSymb
+        layer6 {
+            bindings = <
+                &kp LS(1)      &kp LS(2)      &kp LS(3)      &kp LS(4)      &kp LS(5)      &trans         &kp LS(6)      &kp LS(7)      &kp LS(8)      &kp LS(9)      &kp LS(0)      &kp LS(PLUS)
+                &kp AMPERSAND  &kp PIPE       &kp LBRACKET   &kp RBRACKET   &kp COLON      &kp EQUAL      &kp PG_UP      &kp END        &kp UP         &kp HOME       &trans         &kp LS(ASTERISK)
+                &kp SLASH      &kp ASTERISK   &kp LBRACE     &kp RBRACE     &kp LS(SEMI)   &kp LPAREN     &kp PG_DOWN    &kp LEFT       &kp DOWN       &kp RIGHT      &kp RPAREN     &trans
+                &trans         &trans         &trans         &trans         &kp RIGHTCTRL  &trans         &trans         &trans         &trans         &trans         &trans
+                &trans         &trans         &trans         &trans         &trans         &trans
+            >;
+        };
     };
-    keypad {
-      bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
-      >;
-    };
-    fn {
-      bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
-      >;
-    };
-    mod {
-      bindings = <
-        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                     &trans                 &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none        &none        &bootloader                                                               &bootloader            &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &rgb_ug RGB_MEFS_CMD 5 &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
-      >;
-    };
-  };
 };
